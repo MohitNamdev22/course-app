@@ -1,4 +1,4 @@
-import {Signup} from "@repo/ui/components/Signup";
+import {Signup} from "../../../../packages/ui/components"
 
 export default function SigninPage(){
     return<div>
