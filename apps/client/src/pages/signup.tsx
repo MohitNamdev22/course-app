@@ -1,7 +1,10 @@
 import { Button, Card, TextField, Typography } from "@mui/material";
 import {Signup} from "../../../../packages/ui/components"
+import { useState } from "react";
 
 export default function SigninPage(){
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     return<div>
             <div style={{
                 paddingTop: 150,
@@ -14,7 +17,7 @@ export default function SigninPage(){
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>
-            <Card varint={"outlined"} style={{width: 400, padding: 20}}>
+            <Card style={{width: 400, padding: 20}}>
                 <TextField
                     onChange={(event) => {
                         setEmail(event.target.value);
@@ -26,7 +29,7 @@ export default function SigninPage(){
                 <br/><br/>
                 <TextField
                     onChange={(e) => {
-                        setPassword(e.target.value);
+
                     }}
                     fullWidth={true}
                     label="Password"
@@ -39,15 +42,7 @@ export default function SigninPage(){
                     size={"large"}
                     variant="contained"
                     onClick={async() => {
-                        const response = await axios.post(`${BASE_URL}/admin/signup`, {
-                            username: email,
-                            password: password
-                        })
-                        let data = response.data;
-                        localStorage.setItem("token", data.token);
-                        // window.location = "/"
-                        setUser({userEmail: email, isLoading: false})
-                        navigate("/courses")
+
                     }}
 
                 > Signup</Button>
